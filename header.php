@@ -7,7 +7,7 @@ ini_set('display_errors', '1');
 
 <div id="header" class="container">
   <div style="text-align:center; margin-bottom: 30px;">
-    <img src="northcode.png" style="width:55%" />
+    <img src="img/northcode.png" style="width:55%" />
   </div>
   <nav class="navbar navbar-default">
     <a class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
