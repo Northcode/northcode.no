@@ -12,11 +12,9 @@
 					<h5 class="graytext"><span class="red">user</span>@<span class="blue">northcode</span> $ <span class="green">cat</span> /dev/northcode | <span class="green">webpage</span></h5>
 					<?php
 					
-					include_once("connect.php");
-					
-					$sql = $con->prepare("select *,date_format(posttime,'%d.%m.%Y') from blogposts order by posttime desc");
+					$sql = $mysql->prepare("select id,title,content,date_format(posted,'%d.%m.%Y') from posts order by posted desc");
 					$sql->execute();
-					$sql->bind_result($id,$title,$post,$time,$timef);
+					$sql->bind_result($id,$title,$post,$timef);
 					
 					while($sql->fetch()) {
 					?>
@@ -29,8 +27,9 @@
 						<hr/>
 					<?php }  ?>
 				</div>
-				<div class="col-md-4">
-					
+				<div class="col-md-4 right-sidebar">
+					<h3>Welcome to northcode!</h3>
+					<p>
 				</div>
 			</div>
 
