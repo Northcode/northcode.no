@@ -6,10 +6,10 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/res/mysql_connect.php");
 ?>
 
 <div id="header">
-  <div class="logo" style="text-align:center; margin-bottom: 30px;">
+  <div class="logo" style="text-align:center;">
     <img src="img/northcode.png" style="width:55%" />
   </div>
-  <nav class="navbar navbar-default container">
+  <nav class="navbar navbar-default">
     <a class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>

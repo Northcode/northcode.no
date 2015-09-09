@@ -5,9 +5,10 @@
 .navbar-right {
   margin-right: 0px !important;
 }
-#header .collapse {
-  border: 1px solid #bbb;
-  border-radius: 5px;
+#header .navbar {
+  border-radius: 0px;
+  margin-top: -5px;
+  border-bottom: 1px solid #bbb;
 }
 .right-sidebar {
   border-left: solid 1px #999;
