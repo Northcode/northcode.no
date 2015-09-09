@@ -1,12 +1,12 @@
 <html>
 <head>
   <title>About Us</title>
-  <link href="css/bootstrap.min.css" rel="stylesheet" />
-  <link href="css/main.css" rel="stylesheet" />
+  <link href="/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/css/main.css" rel="stylesheet" />
 </head>
 <body>
   <div id="wrapper">
-    <?php include("header.php"); ?>
+    <?php include("res/header.php"); ?>
 
     <div id="content" class="container">
       <h2>About us:</h2>
@@ -22,9 +22,9 @@
         Jens is a programmer for switzerland. He maintains <a href="http://cobaltvault.no">cobalt vault</a>, and usually codes in c#, python or web languages.
     </div>
 
-    <?php include("footer.php"); ?>
+    <?php include("res/footer.php"); ?>
   </div>
-  <script src="js/jq.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <script src="/js/jq.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
 </body>
 </html>
