@@ -29,7 +29,7 @@
 				</div>
 				<div class="col-md-4 right-sidebar">
 					<h3>Welcome to northcode!</h3>
-					<p>
+					<p>We are a programming group working on various projects centered around c++,.net and web development. See our project showcases for more information about the stuff we make.</p>
 				</div>
 			</div>
 
