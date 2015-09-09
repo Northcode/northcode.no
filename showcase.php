@@ -4,18 +4,18 @@ if(!isset($_GET['id'])) {
 	header("Location: errornoproject.php");
 }
 
-include_once("connect.php");
+include_once("res/mysql_connect.php");
 
 ?>
 <html>
 	<head>
 		<title>Project</title>
-		<link href="css/bootstrap.min.css" rel="stylesheet" />
-		<link href="css/main.css" rel="stylesheet" />
+		<link href="/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="/css/main.css" rel="stylesheet" />
 	</head>
 	<body>
 		<div id="wrapper" style="margin-top: -120px;">
-			<?php include("header.php"); ?>
+			<?php include("res/header.php"); ?>
 
 			<div class="container" id="content">
 				<?php
@@ -36,7 +36,7 @@ include_once("connect.php");
 			
 			<?php include("footer.php"); ?>
 		</div>
-		<script src="js/jq.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<script src="/js/jq.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
 	</body>
 </html>

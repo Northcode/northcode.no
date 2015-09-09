@@ -1,12 +1,12 @@
 <html>
 	<head>
 		<title>Northcode</title>
-		<link href="css/bootstrap.min.css" rel="stylesheet" />
-		<link href="css/main.css" rel="stylesheet" />
+		<link href="/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="/css/main.css" rel="stylesheet" />
 	</head>
 	<body>
 		<div id="wrapper">
-			<?php include("header.php"); ?>
+			<?php include("res/header.php"); ?>
 			<div id="content" class="container">
 				<div class="col-md-8">
 					<h5 class="graytext"><span class="red">user</span>@<span class="blue">northcode</span> $ <span class="green">cat</span> /dev/northcode | <span class="green">webpage</span></h5>
@@ -33,9 +33,9 @@
 				</div>
 			</div>
 
-			<?php include("footer.php"); ?><
+			<?php include("res/footer.php"); ?>
 		</div>
-		<script src="js/jq.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<script src="/js/jq.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
 	</body>
 </html>
