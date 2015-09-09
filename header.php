@@ -2,12 +2,12 @@
 
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
-
+include_once($_SERVER['DOCUMENT_ROOT'] . "/res/mysql_connect.php");
 ?>
 
-<div id="header" class="container">
-  <div style="text-align:center; margin-bottom: 30px;">
-    <img src="northcode.png" style="width:55%" />
+<div id="header">
+  <div class="logo" style="text-align:center;">
+    <img src="img/northcode.png" style="width:55%" />
   </div>
   <nav class="navbar navbar-default">
     <a class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
@@ -23,9 +23,9 @@ ini_set('display_errors', '1');
           <ul class="dropdown-menu" role="menu">
             <?php
 
-            include_once("connect.php");
 
-            $sql = $con->prepare("select id,name from projects");
+
+            $sql = $mysql->prepare("select id,name from projects");
 
             $sql->execute();
             $sql->bind_result($id,$name);
