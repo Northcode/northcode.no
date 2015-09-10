@@ -34,7 +34,5 @@
 
 			<?php include("res/footer.php"); ?>
 		</div>
-		<script src="/js/jq.js"></script>
-		<script src="/js/bootstrap.min.js"></script>
 	</body>
 </html>
