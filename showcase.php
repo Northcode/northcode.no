@@ -34,7 +34,7 @@ include_once("res/mysql_connect.php");
 				</div>
 			</div>
 			
-			<?php include("footer.php"); ?>
+			<?php include("res/footer.php"); ?>
 		</div>
 		<script src="/js/jq.js"></script>
 		<script src="/js/bootstrap.min.js"></script>
