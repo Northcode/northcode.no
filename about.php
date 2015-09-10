@@ -1,12 +1,12 @@
 <html>
-	<head>
-		<title>About Us</title>
-		<link href="css/bootstrap.min.css" rel="stylesheet" />
-		<link href="css/main.css" rel="stylesheet" />
-	</head>
-	<body>
-		<div id="wrapper">
-			<?php include("header.php"); ?>
+<head>
+  <title>About Us</title>
+  <link href="/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="/css/main.css" rel="stylesheet" />
+</head>
+<body>
+  <div id="wrapper">
+    <?php include("res/header.php"); ?>
 
 			<div id="content" class="container">
 				<h2>About us:</h2>
@@ -24,7 +24,7 @@
 
 			<?php include($_SERVER['DOCUMENT_ROOT'] . "/res/footer.php"); ?>
 		</div>
-		<script src="js/jq.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+		<script src="/js/jq.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
 	</body>
 </html>
