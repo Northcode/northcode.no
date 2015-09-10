@@ -1,8 +1,6 @@
 <html>
 	<head>
 		<title>Northcode</title>
-		<link href="/css/bootstrap.min.css" rel="stylesheet" />
-		<link href="/css/main.css" rel="stylesheet" />
 		<?php include($_SERVER['DOCUMENT_ROOT'] . "/res/meta.php"); ?>
 	</head>
 	<body>

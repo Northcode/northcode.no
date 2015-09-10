@@ -1,8 +1,6 @@
 <html>
 <head>
   <title>Server</title>
-  <link href="/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="/css/main.css" rel="stylesheet" />
 </head>
 <body>
   <div id="wrapper">
