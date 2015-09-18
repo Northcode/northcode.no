@@ -10,48 +10,50 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/res/mysql_connect.php");
     <img src="img/northcode.png" style="width:55%" />
   </div>
   <nav class="navbar navbar-default">
-    <a class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </a>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li><a href="index.php">home</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">things we make <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <?php
-
-
-
-            $sql = $mysql->prepare("select id,name from projects");
-
-            $sql->execute();
-            $sql->bind_result($id,$name);
-
-            while($sql->fetch()) {
-              ?>
-              <li><a href="showcase.php?id=<?php echo $id; ?>"><?php echo $name; ?></a></li>
+    <div class="container">
+      <a class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="index.php">home</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">things we make <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
               <?php
-            }
 
-            $sql->close();
 
-            ?>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">servers <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="server.php">northcode server</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="about.php">about us</a>
-        </li>
-      </ul>
-      <button type="button" class="btn btn-primary navbar-btn navbar-right">login</button>
+
+              $sql = $mysql->prepare("select id,name from projects");
+
+              $sql->execute();
+              $sql->bind_result($id,$name);
+
+              while($sql->fetch()) {
+                ?>
+                <li><a href="showcase.php?id=<?php echo $id; ?>"><?php echo $name; ?></a></li>
+                <?php
+              }
+
+              $sql->close();
+
+              ?>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">servers <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="server.php">northcode server</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="about.php">about us</a>
+          </li>
+        </ul>
+        <button type="button" class="btn btn-primary navbar-btn navbar-right">login</button>
+      </div>
     </div>
   </nav>
 </div>
