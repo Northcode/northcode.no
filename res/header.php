@@ -18,9 +18,9 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/res/mysql_connect.php");
       </a>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="index.php">home</a></li>
+          <li><a href="index.php">Home</a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">things we make <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Projects <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <?php
 
@@ -42,17 +42,20 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/res/mysql_connect.php");
               ?>
             </ul>
           </li>
-          <li class="dropdown">
+          <!--<li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">servers <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="server.php">northcode server</a></li>
             </ul>
-          </li>
+          </li>-->
           <li>
-            <a href="about.php">about us</a>
+            <a href="about.php">About Us</a>
           </li>
         </ul>
-        <button type="button" class="btn btn-primary navbar-btn navbar-right">login</button>
+        <ul class="nav navbar-nav navbar-right">
+          <li style="margin-right: 5px;"><button type="button" class="btn btn-primary navbar-btn">Login</button></li>
+          <li><button href="register.php" type="button" class="btn btn-success navbar-btn" onclick="location.href='register.php';">Register</button></li>
+        </ul>
       </div>
     </div>
   </nav>

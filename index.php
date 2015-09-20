@@ -8,7 +8,7 @@
 			<?php include("res/header.php"); ?>
 			<div id="content" class="container">
 				<div class="col-md-8">
-					<h5 class="graytext"><span class="red">user</span>@<span class="blue">northcode</span> $ <span class="green">cat</span> /dev/northcode | <span class="green">webpage</span></h5>
+					<!--<h5 class="graytext"><span class="red">user</span>@<span class="blue">northcode</span> $ <span class="green">cat</span> /dev/northcode | <span class="green">webpage</span></h5>-->
 					<?php
 					
 					$sql = $mysql->prepare("select id,title,content,date_format(posted,'%d.%m.%Y') from posts order by posted desc");
