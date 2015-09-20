@@ -109,13 +109,13 @@ if($email and $username) {
 				<p>Thank you for registering at northcode.no!</p>
 				<p>You will now be able to login to our services</p>
 				<p>In order to use your account it must be activated, or it will be deleted after 30 days and you will have to register again</p>
-				<p>To activate your account, follow this link: <a href="http://northcode.no/scr/register.php?activate&id='.$code.'">http://northcode.no/mysql/register.php?activate&id='.$code.'</a></p>
+				<p>To activate your account, follow this link: <a href="http://northcode.no/scr/register.php?activate&id='.$code.'">http://northcode.no/scr/register.php?activate&id='.$code.'</a></p>
 				<p>If you encounter any problems with activation contact us via: <a href="mailto:contact@northcode.no">contact@northcode.no</a></p>
 		</body>
 		</html>
 		';
 		
-		$plainMessage = 'Dear '.$username.'\n\rThank you for registering at northcode.no!\n\rIn order to activate your account copy this link into your browser:\n\rhttp://northcode.no/mysql/register.php?activate&id='.$code;
+		$plainMessage = 'Dear '.$username.'\n\rThank you for registering at northcode.no!\n\rIn order to activate your account copy this link into your browser:\n\rhttp://northcode.no/scr/register.php?activate&id='.$code;
 
 		send_mail($subject,$message,$plainMessage,$email,$username);
 	}
