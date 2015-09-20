@@ -1,2 +1,5 @@
 sec/
 db.mwb.bak
+
+# Libraries
+lib/PHPMailer

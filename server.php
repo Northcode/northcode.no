@@ -1,8 +1,6 @@
 <html>
 <head>
   <title>Server</title>
-  <link href="/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="/css/main.css" rel="stylesheet" />
 </head>
 <body>
   <div id="wrapper">
@@ -19,7 +17,5 @@
 
     <?php include("res/footer.php"); ?>
   </div>
-  <script src="/js/jq.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
 </body>
 </html>
