@@ -54,7 +54,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/res/mysql_connect.php");
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <!--<li style="margin-right: 5px;"><button type="button" class="btn btn-primary navbar-btn">Login</button></li>-->
-          <li><button href="register.php" type="button" class="btn btn-success navbar-btn" onclick="location.href='register.php';">Register</button></li>
+          <!--<li><button href="register.php" type="button" class="btn btn-success navbar-btn" onclick="location.href='register.php';">Register</button></li>-->
         </ul>
       </div>
     </div>

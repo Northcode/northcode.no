@@ -18,8 +18,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/res/mysql_connect.php");
 			<?php include("res/header.php"); ?>
 
 			<div class="container" id="content">
-				
-				
+				<h1><font style="color:red" >As we are currently moving databases because of forums etc. Registration isn't open atm. please try again in a few days</font></h1>
+				<?php /*
 				<div class="col-md-8">
 
 					<h1>Register on Northcode<br><small>Includes all Northcode services like Cobaltvault etc.</small></h1>
@@ -60,7 +60,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/res/mysql_connect.php");
 				<p>We may send you an email infrequently (perhaps once a year) to update you about Northcode and it's services. If we would start out to send more frequent newletters we will have an opt-out option.</p>
 				<p>Solely your username will be viewable for other users on the site, any other information is kept private unless chosen not to do so.</p>
 				</div>
-
+				*/ ?>
 			</div>
 			
 			<?php include("res/footer.php"); ?>
