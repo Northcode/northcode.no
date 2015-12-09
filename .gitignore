@@ -3,3 +3,8 @@ db.mwb.bak
 
 # Libraries
 lib/PHPMailer
+
+# sftp configuration file
+sftp-config.json
+
+ignore*
