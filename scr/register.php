@@ -1,5 +1,4 @@
 <?php 
-exit("Registrations are closed");
 include_once($_SERVER['DOCUMENT_ROOT'] . "/res/mysql_connect.php");
 include_once($_SERVER['DOCUMENT_ROOT'] . "/sec/password_hash.php");
 include_once($_SERVER['DOCUMENT_ROOT'] . "/lib/mail.php");
