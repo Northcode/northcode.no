@@ -3,6 +3,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . "/res/mysql_connect.php");
 include_once($_SERVER['DOCUMENT_ROOT'] . "/sec/password_hash.php");
 include_once($_SERVER['DOCUMENT_ROOT'] . "/lib/mail.php");
 
+@session_start();
 
 //define functions
 
@@ -50,10 +51,17 @@ function test_email($email) {
 	return preg_match("/^([\w\-]+\@[\w\-]+\.[\w\-]+)$/",$email);
 }
 
+function red_error($msg) {
+	$_SESSION['reg_error'] = $msg;
+	header("Location: ../register.php");
+	exit();
+}
+
 //IF $activate GOTO ACTIVATE
 if(isset($_GET['activate'])) {
 	activate();
 	header("Location: ../index.php");
+	exit();
 }
 
 
@@ -65,18 +73,34 @@ $password;
 
 
 if (isset($_POST['username'])) {
-	//code...
+	if(!test_username($_POST['username'])) {
+		red_error("Invalid username!");
+	}
 	$username = $_POST['username'];
 }
 
 if (isset($_POST['email'])) {
-	//code...
+	if(!test_email($_POST['email'])) {
+		red_error("Invalid email!");
+	}
 	$email = $_POST['email'];
 }
 
 if (isset($_POST['password'])) {
 	//code...
 	$password = $_POST['password'];
+}
+
+if(isset($_POST['password-check'])) {
+	$password_c = $_POST['password-check'];
+}
+
+if(!$username || !$email || !$password || !$password_c) {
+	red_error("Missing data!");
+}
+
+if($password != $password_c) {
+	red_error("Passwords do not match!");
 }
 
 //generate password hash

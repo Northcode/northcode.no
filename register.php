@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
 error_reporting(-1);
@@ -50,7 +52,20 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/res/mysql_connect.php");
 						</div>
 						<button type="submit" class="btn btn-default">Register</button>
 					</form>
+
+					<?php 
+				if(isset($_SESSION['reg_error'])) {
+				 ?>
+				 <div class="alert alert-danger" role="alert">
+				 <strong>Error!</strong> <?php echo $_SESSION['reg_error']; ?>
+				 </div>
+				 <?php 
+				 unset($_SESSION['reg_error']);
+				}
+				  ?>
 				</div>
+
+
 
 				<div class="col-md-4">
 				<h2>Terms and Conditions</h2>
