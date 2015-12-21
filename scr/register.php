@@ -41,6 +41,7 @@ function activate() {
 	}
 }
 
+
 function test_username($name) {
 	return preg_match("/^([a-zA-Z0-9\s]*)$/",$name);
 }
@@ -79,7 +80,11 @@ if (isset($_POST['password'])) {
 }
 
 //generate password hash
-$password = hashpass($password);
+$options = [
+    'cost' => 11,
+    'salt' => mcrypt_create_iv(22, MCRYPT_DEV_URANDOM),
+];
+$pwd_h = password_hash($password, PASSWORD_BCRYPT, $options);
 
 //check email & username
 if($email and $username) {
@@ -91,8 +96,8 @@ if($email and $username) {
 		$death_time = date('Y-m-d H:i:s',time() + $ttl);
 
 		//insert
-		$puser_q = $mysql->prepare("INSERT into preuser (username,password,email,register_code,TTL) VALUES (?,?,?,?,?)");
-		$puser_q->bind_param("sssss",$username,$password,$email,$code,$death_time);
+		$puser_q = $mysql->prepare("INSERT into preuser (username,password,password_salt,email,register_code,TTL) VALUES (?,?,?,?,?,?)");
+		$puser_q->bind_param("ssssss",$username,$pwd_h,$options['salt'],$email,$code,$death_time);
 		$puser_q->execute();
 
 		//Send mail
