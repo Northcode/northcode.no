@@ -24,33 +24,36 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/res/mysql_connect.php");
 
 					<h1>Register on Northcode<br><small>Includes all Northcode services like Cobaltvault etc.</small></h1>
 
-					<form class="form-horizontal" role="form" action="/scr/register.php" method="post">
+					<form class="form-horizontal" role="form" action="/scr/register.php" method="post" id="reg-form">
 						<div class="form-group">
 							<label for="register-username" class="col-sm-2 control-label">Username</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" name="username" id="register-username" data-check="true" placeholder="Enter username">
-								<span class="glyphicon"></span>
+								<p class="help-block">Only use alphanumeric Characters [Aa-Zz0-9]</p>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="register-email" class="col-sm-2 control-label">Email address</label>
 							<div class="col-sm-10">
 								<input type="email" class="form-control" name="email" id="register-email" data-check="true" placeholder="Enter email">
+								<p class="help-block">Enter a valid email address, it will be used for confirming your account</p>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="register-password" class="col-sm-2 control-label">Password</label>
 							<div class="col-sm-10">
 								<input type="password" class="form-control" id="register-password" name="password" data-check="true" placeholder="Password">
+								<p class="help-block">Enter a password with at least 8 characters</p>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="register-password-check" class="col-sm-2 control-label">Password</label>
 							<div class="col-sm-10">
-								<input type="password" class="form-control" id="register-password-check" name="password-check" data-check="true" placeholder="Password">
+								<input type="password" class="form-control" id="register-password-check" name="password-check" data-check="true" placeholder="Password" equal="password">
+								<p class="help-block">Please re-enter your password for confirmation</p>
 							</div>
 						</div>
-						<button type="submit" class="btn btn-default">Register</button>
+						<button type="submit" id="reg-form-submit" class="btn btn-primary">Register</button>
 					</form>
 
 					<?php 
@@ -76,6 +79,7 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/res/mysql_connect.php");
 			</div>
 			
 			<?php include("res/footer.php"); ?>
+			<script type="text/javascript" src="js/register.js"></script>
 		</div>
 	</body>
 </html>
