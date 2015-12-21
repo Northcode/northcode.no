@@ -5,7 +5,30 @@ var patterns = {
 	password: /^.{8,}$/
 }
 
+function delay(label,callback){
+    if(typeof window.delayed_methods=="undefined"){window.delayed_methods={};}  
+    delayed_methods[label]=Date.now();
+    var t=delayed_methods[label];
+    setTimeout(function(){ if(delayed_methods[label]!=t){return;}else{  callback();}}, 500);
+  }
 
+function validate(inputs) {
+	var valid = true;
+	for(item in inputs) {
+		if(inputs[item] == false) {
+			valid = false;
+			break;
+		}
+	}
+
+	if(valid) {
+		$("#reg-form-submit").removeClass('disabled');
+	} else {
+		if(! $("#reg-form-submit").hasClass('disabled')) {
+			$("#reg-form-submit").addClass('disabled');
+		}
+	}
+}
 
 $(function(ready) {
 	var inputs = {};
@@ -45,22 +68,32 @@ $(function(ready) {
 					}
 				}
 			}
+			validate(inputs);
+			
+		});
+	});
 
-			var valid = true;
-			for(item in inputs) {
-				if(inputs[item] == false) {
-					valid = false;
-					break;
-				}
-			}
+	inputs[$('#register-username').attr('name')] = false;
 
-			if(valid) {
-				$("#reg-form-submit").removeClass('disabled');
-			} else {
-				if(! $("#reg-form-submit").hasClass('disabled')) {
-					$("#reg-form-submit").addClass('disabled');
-				}
-			}
+	$('#register-username').keyup(function () {
+		delay("username", function() {
+			console.log("Action");
+			$.get('ajax/user_exists.php', {username: $('#register-username').val() })
+				.done(function (data) {
+					console.log(data);
+					var fg = $('#register-username').parent().parent();
+
+					if(data["result"] == "ok") {
+						inputs[$('#register-username').attr('name')] = true;
+						$("#username-addtext").html("OK");
+						fg.attr('class','form-group has-success');
+					} else {
+						inputs[$('#register-username').attr('name')] = false;
+						$("#username-addtext").html(data["error"]);
+						fg.attr('class','form-group has-error');
+					}
+					validate(inputs);
+				});
 		});
 	});
 });

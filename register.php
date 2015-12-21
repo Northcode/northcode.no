@@ -28,8 +28,8 @@ require_once($_SERVER['DOCUMENT_ROOT'] . "/res/mysql_connect.php");
 						<div class="form-group">
 							<label for="register-username" class="col-sm-2 control-label">Username</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" name="username" id="register-username" data-check="true" placeholder="Enter username">
-								<p class="help-block">Only use alphanumeric Characters [Aa-Zz0-9]</p>
+								<input type="text" class="form-control" name="username" id="register-username" placeholder="Enter username">
+								<p class="help-block">Only use alphanumeric Characters [Aa-Zz0-9] <strong><span id="username-addtext"></span></strong></p>
 							</div>
 						</div>
 						<div class="form-group">

@@ -44,7 +44,7 @@ function activate() {
 
 
 function test_username($name) {
-	return preg_match("/^([a-zA-Z0-9\s]*)$/",$name);
+	return preg_match("/^([a-zA-Z0-9]*)$/",$name);
 }
 
 function test_email($email) {
