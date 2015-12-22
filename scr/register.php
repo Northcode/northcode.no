@@ -46,7 +46,7 @@ function test_username($name) {
 }
 
 function test_email($email) {
-	return preg_match("/^([\w\-]+\@[\w\-]+\.[\w\-]+)$/",$email);
+	return preg_match("/^([\w\-\+\.]+\@[\w\-]+\.[\w\-]+)$/",$email);
 }
 
 //IF $activate GOTO ACTIVATE
