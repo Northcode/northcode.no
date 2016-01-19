@@ -16,3 +16,6 @@ def login(request):
 
 def password_reset(request):
     raise NotImplementedError()
+
+def gallery(request):
+    raise NotImplementedError()
