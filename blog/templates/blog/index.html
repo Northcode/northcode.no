@@ -1,0 +1,44 @@
+{% load staticfiles %}
+<html>
+	<head>
+		<link type="text/css" rel="stylesheet" href="{% static 'main.css' %}" />
+		{% block stylesheets %}{% endblock %}
+	</head>
+	<body>
+		<section id="wrapper">
+		    {% block header %}
+		    <section id="logo"><img src="{% static 'img/northcode.png' %}" /></section>
+		    <header id="header" class="window">
+			    <nav>
+				    <ul>
+					    <li><a href="/">Home</a></li>
+					    <li><a href="/projects/">Projects</a></li>
+					    <li><a href="/about/">About Us</a></li>
+					    <li><a href="/contact/">Contact info</a></li>
+					    <li><a href="/gallery/">Gallery</a></li>
+					    <li><a href="{% url 'login' %}">Login</a></li>
+				    </ul>
+				    <ul>
+			    </nav>
+		    </header>
+		    {% endblock %}
+		    {% block content %}
+		    <section id="blog">
+			{% for post in blog_posts %}
+			    <article class="blogpost window">
+				    <h3>{{post.title}}</h3>
+				    {% autoescape off %}<p>{{post.text}}</p>{% endautoescape %}
+				    <em>posted on: {{post.posted}} by: {{post.author.first_name}} {{post.author.last_name}}</em>
+			    </article>
+			{% endfor %}
+		    </section>
+		    {% endblock %}
+		    {% block footer %}
+		    <footer>
+			    Webpage by: Andreas Larsen<br/>
+			    &copy; 2016 - Northcode<br/>
+		    </footer>
+		    {% endblock %}
+		</section>
+	</body>
+</html>
