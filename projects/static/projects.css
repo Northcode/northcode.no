@@ -1,0 +1,21 @@
+#projects {
+    width: 100%;
+}
+
+.project_entry {
+    padding: 1px 15px;
+    color: #121212;
+    text-decoration: none;
+    margin: 20px auto;
+    width: 80%;
+    display:block;
+}
+
+.project_entry>p {
+    font-weight: normal;
+}
+
+#projects>a {
+    color: #121212;
+    text-decoration: none;
+}
