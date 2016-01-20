@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
     url(r'^about', views.about, name="about"),
     url(r"^contact", views.contact, name="contact"),
+    url(r"^gallery/", views.Gallery.as_view(), name="gallery"),
 ]

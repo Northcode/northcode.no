@@ -1,8 +1,17 @@
 from django.shortcuts import render
+from django.views.generic.list import ListView
+from .models import Picture
 
 # Create your views here.
 def about(request):
-    raise NotImplementedError()
+    return render(request, 'info/about.html', {})
 
 def contact(request):
-    raise NotImplementedError()
+    return render(request, 'info/contact.html', {})
+
+class Gallery(ListView):
+    template_name = 'info/gallery.html'
+    context_object_name = 'images'
+
+    def get_queryset(self):
+        return Picture.objects.order_by('-uploaded_on')[:3]
