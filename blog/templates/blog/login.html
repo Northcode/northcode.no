@@ -7,7 +7,9 @@
 {% block content %}
 <section id="login">
     <h3>Login</h3>
-    <form action="{% url 'login' %}">
+    <form action="{% url 'login' %}" method="POST">
+	{% csrf_token %}
+	<input type="hidden" name="next" value="{% url 'index' %}" />
 	<input type="text" name="username" placeholder="Username" />
 	<input type="password" name="password" placeholder="Password" />
 	<input type="submit" value="Login" />

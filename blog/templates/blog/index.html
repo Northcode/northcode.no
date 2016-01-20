@@ -1,13 +1,25 @@
 {% load staticfiles %}
+<!DOCTYPE html>
 <html>
 	<head>
 		<link type="text/css" rel="stylesheet" href="{% static 'main.css' %}" />
+		<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
 		{% block stylesheets %}{% endblock %}
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<meta name="author" content="Northcode"/>
+		
+		
+		{% block meta %}
+		<title>Northcode</title>
+		<meta name="description" content="Northcode.no webpage" />
+		{% endblock %}
 	</head>
 	<body>
 		<section id="wrapper">
 		    {% block header %}
-		    <section id="logo"><img src="{% static 'img/northcode.png' %}" /></section>
+		    <section id="logo"><img src="{% static 'img/northcode_comp.png' %}" /></section>
 		    <header id="header" class="window">
 			    <nav>
 				    <ul>
@@ -16,9 +28,12 @@
 					    <li><a href="{% url 'about'    %}">About Us</a></li>
 					    <li><a href="{% url 'contact'  %}">Contact info</a></li>
 					    <li><a href="{% url 'gallery'  %}">Gallery</a></li>
+					    {% if user.is_authenticated %}
+					    <li><a href="{% url 'logout' %}">Logout</a></li>
+					    {% else %}
 					    <li><a href="{% url 'login'    %}">Login</a></li>
+					    {% endif %}
 				    </ul>
-				    <ul>
 			    </nav>
 		    </header>
 		    {% endblock %}
