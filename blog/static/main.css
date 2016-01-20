@@ -9,13 +9,17 @@ body {
     width: 850px;
 }
 
-p {
-    font-size: 0.8vw;
+p,li,a,ul {
+    font-size: 13pt;
 }
 
 h3 {
-    font-size: 1.4vw;
+    font-size: 18pt;
     color: #444;
+}
+
+h4 {
+    font-size: 15pt;
 }
 
 #header {
