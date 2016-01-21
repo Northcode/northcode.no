@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views.generic.list import ListView
 from .models import Picture
 
@@ -15,3 +15,6 @@ class Gallery(ListView):
 
     def get_queryset(self):
         return Picture.objects.order_by('-uploaded_on')[:3]
+
+def gallery_img(request,pk):
+    return redirect(Picture.objects.get(pk=pk).path.url)
