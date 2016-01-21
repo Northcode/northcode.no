@@ -1,5 +1,5 @@
 body {
-    background-color: #f3f3f3;
+    background-color: #fafafa;
     line-height: 1.5;
 }
 
@@ -13,6 +13,16 @@ p,li,a,ul {
     font-size: 13pt;
 }
 
+h1 {
+    font-size: 22pt;
+    color: #666;
+}
+
+h2 {
+    font-size: 20pt;
+    color: #555;
+}
+
 h3 {
     font-size: 18pt;
     color: #444;
@@ -20,6 +30,21 @@ h3 {
 
 h4 {
     font-size: 15pt;
+}
+
+blockquote {
+    font-weight: bold;
+    color: #999;
+}
+
+blockquote>p:before {
+    content: open-quote;
+    font-size: 16pt;
+}
+
+blockquote>p:after {
+    content: close-quote;
+    font-size: 11pt;
 }
 
 #header {
