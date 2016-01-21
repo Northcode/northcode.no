@@ -19,3 +19,7 @@
     color: #121212;
     text-decoration: none;
 }
+
+#project>h1 {
+    font-size: 28pt;
+}
