@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'info.apps.InfoConfig',
 
     'easy_thumbnails',
+    'django_markdown',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -137,3 +138,4 @@ THUMBNAIL_ALIASES = {
         'medium': {'size': (600,450), 'crop': True}
     }
 }
+
