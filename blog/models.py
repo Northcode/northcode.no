@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django_markdown.models import MarkdownField
 
 # Create your models here.
 class PostTag(models.Model):
@@ -10,7 +11,7 @@ class PostTag(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=50)
-    text = models.TextField()
+    text = MarkdownField()
     author = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
     posted = models.DateTimeField(auto_now_add=True)
     tags = models.ManyToManyField(PostTag)

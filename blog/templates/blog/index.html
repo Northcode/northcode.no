@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load staticfiles django_markdown %}
 <!DOCTYPE html>
 <html>
 	<head>
@@ -41,8 +41,8 @@
 		    <section id="blog">
 			{% for post in blog_posts %}
 			    <article class="blogpost window">
-				    <h3>{{post.title}}</h3>
-				    {% autoescape off %}<p>{{post.text}}</p>{% endautoescape %}
+				    <h1>{{post.title}}</h1>
+				    {{post.text|markdown}}
 				    <em>posted on: {{post.posted}} by: {{post.author.first_name}} {{post.author.last_name}}</em>
 			    </article>
 			{% endfor %}
