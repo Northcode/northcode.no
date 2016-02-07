@@ -10,9 +10,3 @@ class Index(ListView):
 
     def get_queryset(self):
         return Post.objects.order_by('-posted')[:5]
-
-def login(request):
-    return render(request, 'blog/login.html', {})
-
-def password_reset(request):
-    raise NotImplementedError()
