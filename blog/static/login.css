@@ -30,6 +30,8 @@ body {
     color: #ff6300;
     
     border: 0;
+
+    box-sizing: border-box;
 }
 
 #login>form>input[type=submit] {
