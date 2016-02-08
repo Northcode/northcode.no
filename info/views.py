@@ -18,3 +18,6 @@ class Gallery(ListView):
 
 def gallery_img(request,pk):
     return redirect(Picture.objects.get(pk=pk).path.url)
+
+def register_message(request):
+    return render(request, "info/register.html", {})
