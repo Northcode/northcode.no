@@ -15,14 +15,13 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'da7i74s9g5ci&a0kj%_=ns25q(cn-&95t)069)5-5ycns4qrqb'
+SECRET_KEY = 'rignaav8923h49fay8fgva5tvg4lawjve897a345b+av3avwe7+brva'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# Security WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -129,9 +128,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
+STATIC_ROOT = '/var/www/northcode.no/static/'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = 'media/'
+MEDIA_ROOT = '/var/www/northcode.no/media/'
 
 THUMBNAIL_ALIASES = {
     '': {
@@ -139,3 +139,23 @@ THUMBNAIL_ALIASES = {
     }
 }
 
+
+# load config from json file
+config_dir = "/etc"
+config_path = os.path.join(config_dir,"northcode.no.conf")
+
+if os.path.isfile(config_path):
+    try:
+        import json
+        config_file = open(config_path,"r",encoding="utf-8")
+        config = json.loads(config_file.read())
+        config_file.close()
+
+        SECRET_KEY = config.get("secret",SECRET_KEY)
+        ALLOWED_HOSTS = config.get("allowed_hosts",ALLOWED_HOSTS)
+        DATABASES = config.get("databases",DATABASES)
+        DEBUG = config.get("debug",DEBUG)
+    except IOError as e:
+        print("I/O error(%s): (%i) %s" & (config_path,e.errno,e.strerror))
+    except ValueError as e:
+        print("There was an error parsing the config file: %s" % str(e))

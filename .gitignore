@@ -2,3 +2,4 @@
 **__pycache__*
 /info/migrations/0001_initial.py
 media/
+static/
