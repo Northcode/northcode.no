@@ -8,7 +8,7 @@
 <section id="gallery">
 {% for image in images %}
 	<h4>{{image.title}}</h4>
-	<a href="{{ image.path.url }}"><img src="{{ image.path|thumbnail_url:'medium' }}" /></a><br/>
+	<a href="{{ image.path.url }}"><img src="{{ image.path|thumbnail_url:'medium' }}" alt="{{ image.title }}" /></a><br/>
 	<em>Uploaded on: {{ image.uploaded_on }}</em>
 {% endfor %}
 </section>

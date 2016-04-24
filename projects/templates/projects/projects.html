@@ -4,13 +4,13 @@
 <link rel="stylesheet" type="text/css" href="{% static 'projects.css' %}" />
 {% endblock %}
 {% block content %}
-<section id="projects">
+<div id="projects">
 	{% for project in projects %}
 	<section class="project_entry">
 		<a href="{% url 'projects' %}{{ project.pk }}"><h4>{{project.name}}</h4></a>
 		<p>{{project.description}}</p>
 	</section>
     {% endfor %}
-</section>
+</div>
 
 {% endblock %}
