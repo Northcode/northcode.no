@@ -4,3 +4,4 @@
 media/
 /static/
 *node_modules/
+*.pyc
