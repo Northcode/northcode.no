@@ -17,43 +17,60 @@
 	{% endblock %}
     </head>
     <body>
-	<div id="wrapper">
-	    {% block header %}
-	    <div id="logo"><img alt="Northcode.no" src="{% static 'img/northcode.svg' %}" /></div>
-	    <header id="header" class="window">
-		<nav>
-		    <ul>
-			<li><a href="{% url 'index'    %}">Home</a></li>
-			<li><a href="{% url 'projects' %}">Projects</a></li>
-			<li><a href="{% url 'about'    %}">About Us</a></li>
-			<li><a href="{% url 'contact'  %}">Contact info</a></li>
-			<li><a href="{% url 'gallery'  %}">Gallery</a></li>
-			{% if user.is_authenticated %}
-			<li><a href="{% url 'logout' %}">Logout</a></li>
-			{% else %}
-			<li><a href="{% url 'login'    %}">Login</a></li>
-			{% endif %}
-		    </ul>
-		</nav>
-	    </header>
-	    {% endblock %}
-	    {% block content %}
-	    <!-- <section id="blog"> -->
-	    {% for post in blog_posts %}
-	    <article class="blogpost">
-		<h2>{{post.title}}</h2>
-		{{post.text|markdown}}
-		<em>posted on: {{post.posted}} by: {{post.author.first_name}} {{post.author.last_name}}</em>
-	    </article>
-	    {% endfor %}
-	    <!-- </section> -->
-	    {% endblock %}
-	    {% block footer %}
-	    <footer>
-		Webpage by: Andreas Larsen<br/>
-		&copy; 2016 - Northcode<br/>
-	    </footer>
-	    {% endblock %}
+	<div class="wrapper wrapper-light">
+	    <div class="container">
+		{% block header %}
+		<div id="logo"><img alt="Northcode.no" src="{% static 'img/northcode.svg' %}" /></div>
+		<header id="header" class="window">
+		    <nav>
+			<ul>
+			    <li><a href="{% url 'index'    %}">Home</a></li>
+			    <li><a href="#about">About Us</a></li>
+			    <li><a href="#contact">Contact info</a></li>
+			    <li><a href="{% url 'projects' %}">Projects</a></li>
+			    <li><a href="{% url 'gallery'  %}">Gallery</a></li>
+			    {% if user.is_authenticated %}
+			    <li><a href="{% url 'logout' %}">Logout</a></li>
+			    {% else %}
+			    <li><a href="{% url 'login'    %}">Login</a></li>
+			    {% endif %}
+			</ul>
+		    </nav>
+		</header>
+		{% endblock %}
+		{% block content %}
+		<!-- <section id="blog"> -->
+		<h2>My Blog thingy (mostly dorment):</h2>
+		{% for post in blog_posts %}
+		<article class="blogpost">
+		    <h3>{{post.title}}</h3>
+		    {{post.text|markdown}}
+		    <em>posted on: {{post.posted}} by: {{post.author.first_name}} {{post.author.last_name}}</em>
+		</article>
+		{% if not forloop.last %}
+		<hr class=separator />
+		{% endif %}
+		{% endfor %}
+		<!-- </section> -->
+		{% endblock %}
+	    </div>
 	</div>
+	<div class="wrapper wrapper-dark">
+	    <div class="container" id="contact">
+		{% include "info/contact.html" %}
+	    </div>
+	</div>
+	<div class="wrapper wrapper-light">
+	    <div class="container" id="about">
+		{% include "info/about.html" %}
+	    </div>
+	</div>
+	
+	{% block footer %}
+	<footer>
+	    Webpage by: Andreas Larsen<br/>
+	    &copy; 2016 - Northcode<br/>
+	</footer>
+	{% endblock %}
     </body>
 </html>
