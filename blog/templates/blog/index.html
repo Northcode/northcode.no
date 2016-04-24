@@ -46,7 +46,7 @@
 		<article class="blogpost">
 		    <h3>{{post.title}}</h3>
 		    {{post.text|markdown}}
-		    <em>posted on: {{post.posted}} by: {{post.author.first_name}} {{post.author.last_name}}</em>
+		    <em>posted on: {{post.posted}} by: {{post.author.first_name}} {{post.author.last_name}}, <a href="{% url 'blogpost' pk=post.pk %}">permalink</a></em>
 		</article>
 		{% if not forloop.last %}
 		<hr class=separator />

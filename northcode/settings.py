@@ -139,7 +139,6 @@ THUMBNAIL_ALIASES = {
     }
 }
 
-
 # load config from json file
 config_dir = "/etc"
 config_path = os.path.join(config_dir,"northcode.no.conf")
