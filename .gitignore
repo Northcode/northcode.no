@@ -2,6 +2,5 @@
 **__pycache__*
 /info/migrations/0001_initial.py
 media/
-static/
-/node_modules/.bin/dateformat
+/static/
 *node_modules/

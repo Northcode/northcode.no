@@ -1,0 +1,236 @@
+// variables:
+$font-normal: Ubuntu, Arial, sans-serif;
+$font-heading: Inconsolata, Ubuntu Mono, monospace;
+
+//colors:
+$background-light: #fafafa;
+$background-med: #dcdcdc;
+$background-dark: #333;
+
+$foreground-em: #fe5020;
+$foreground-light: #dedede;
+$foreground-lighter: #efefef;
+$foreground-med-1: #666;
+$foreground-med-2: #555;
+$foreground-med-3: #444;
+$foreground-dark: #333;
+$foreground-darker: #222;
+
+$width-desktop: 850px;
+$width-tablet: 600px;
+$width-phablet: 400px;
+$width-phone: 95%;
+
+$min-width-desktop: 1350px;
+$min-width-tablet: 1000px;
+$min-width-phablet: 600px;
+$min-width-phone: 400px;
+
+// media query mixins:
+@mixin desktop {
+    @media screen and (max-width: $min-width-desktop) {
+	@content
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: $min-width-tablet) {
+	@content
+    }
+}
+
+@mixin phablet {
+    @media screen and (max-width: $min-width-phablet) {
+	@content
+    }
+}
+
+@mixin phone {
+    @media screen and (max-width: $min-width-phone) {
+	@content
+    }
+}
+
+// global style:
+
+body {
+    background-color: $background-light;
+    line-height: 1.5;
+    font-family: $font-normal;
+    font-size: 13pt;
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: $font-heading;
+    margin-bottom: 3px;
+}
+
+h1 {
+    font-size: 22pt;
+    color: $foreground-med-1; 
+}
+ 
+h2 {
+    font-size: 20pt;
+    color: $foreground-med-2; 
+}
+
+h3 {
+    font-size: 18pt;
+    color: $foreground-med-3; 
+}
+
+h4 {
+    font-size: 15pt;
+}
+
+a {
+    color: $foreground-em;
+}
+
+blockquote {
+  font-weight: bold;
+  color: #999; 
+}
+
+blockquote > p:before {
+  content: open-quote;
+  font-size: 16pt; 
+}
+
+blockquote > p:after {
+  content: close-quote;
+  font-size: 11pt; 
+}
+
+blockquote > p:after {
+  content: close-quote;
+  font-size: 11pt; 
+}
+
+header {
+    margin-bottom: 20px;
+    padding: 0;
+    text-align: center;
+    border-bottom: 1px solid #aaa;
+    border-top: 1px solid #aaa;
+
+    nav ul {
+	list-style-type: none;
+	margin-left: 10px;
+	padding: 0;
+
+	li {
+	    width: 60px;
+	    display: inline;
+	    padding: 7px;
+
+	    
+	    a {
+		text-decoration: none;
+	    }
+	}
+	li:hover {
+	    background-color: #999;
+	    /* box-shadow: 0px 0px 5px #555; */
+	    a {
+		color: white;
+	    }
+	}
+    }
+}
+
+.window {
+    color: $background-dark;
+    margin: 15px;
+    padding: 10px;
+
+    @include phone {
+	width: 100%;
+	margin: 0px;
+    }
+}
+
+#logo {
+  font-size: 42px;
+  color: #fe5423;
+  text-align: left;
+  margin-top: 50px;
+  text-align: center;
+  width: 100%;
+
+  img {
+      width: 800px;
+
+      @include desktop {
+	  width: 600px;
+      }
+      @include tablet {
+	  width: 400px;
+      }
+      @include phablet {
+	  width: 380px;
+      }
+      @include phone {
+	  width: 260px;
+      }
+  }
+
+  @include phone {
+      padding: 0;
+  }
+
+}
+
+.blogpost {
+    margin-top: 5px;
+
+}
+
+.separator {
+    width: 60%;
+    color: $foreground-med-1;
+    margin: 25px auto;
+}
+
+footer {
+    text-align: center;
+    color: $foreground-med-1;
+    margin: 45px auto;
+}
+
+// spacing things:
+
+.wrapper {
+    width: 100%;
+}
+
+.wrapper-dark {
+    background-color: $background-dark;
+    color: $foreground-lighter;
+    padding: 5px 0;
+    box-shadow: 10px 0 5px $background-dark;
+    margin: 50px auto;
+    h1,h2,h3,h4,h5 { color: $foreground-light; }
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: $width-desktop;
+
+    @include tablet {
+	width: $width-tablet;
+    }
+    @include phablet {
+	width: $width-phablet;
+    }
+    @include phone {
+	width: $width-phone;
+    }
+}
+
+
+
