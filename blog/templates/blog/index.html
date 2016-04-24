@@ -25,8 +25,8 @@
 		    <nav>
 			<ul>
 			    <li><a href="{% url 'index'    %}">Home</a></li>
-			    <li><a href="#about">About Us</a></li>
-			    <li><a href="#contact">Contact info</a></li>
+			    <li><a href="{% url 'index'    %}#contact">Contact info</a></li>
+			    <li><a href="{% url 'index'    %}#about">About Us</a></li>
 			    <li><a href="{% url 'projects' %}">Projects</a></li>
 			    <li><a href="{% url 'gallery'  %}">Gallery</a></li>
 			    {% if user.is_authenticated %}
