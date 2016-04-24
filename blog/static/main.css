@@ -1,26 +1,25 @@
 body {
-  background-color: #fafafa;
+  background-color: #f5f5f5;
   line-height: 1.5;
   font-family: Ubuntu, Arial, sans-serif;
+  color: #222;
   font-size: 13pt;
   padding: 0;
   margin: 0; }
 
 h1, h2, h3, h4, h5 {
   font-family: Inconsolata, Ubuntu Mono, Courier, monospace;
-  margin-bottom: 3px; }
+  margin-bottom: 3px;
+  color: #333; }
 
 h1 {
-  font-size: 22pt;
-  color: #666; }
+  font-size: 22pt; }
 
 h2 {
-  font-size: 20pt;
-  color: #555; }
+  font-size: 20pt; }
 
 h3 {
-  font-size: 18pt;
-  color: #444; }
+  font-size: 18pt; }
 
 h4 {
   font-size: 15pt; }
@@ -30,7 +29,7 @@ a {
 
 blockquote {
   font-weight: bold;
-  color: #999; }
+  color: #4d4d4d; }
 
 blockquote > p:before {
   content: open-quote;
@@ -67,7 +66,6 @@ header {
         color: white; }
 
 .window {
-  color: #333;
   margin: 15px;
   padding: 10px; }
   @media screen and (max-width: 400px) {
@@ -105,25 +103,28 @@ header {
 
 .separator {
   width: 60%;
-  color: #666;
+  color: #222;
   margin: 25px auto; }
 
 footer {
   text-align: center;
-  color: #666;
-  margin: 45px auto; }
+  background-color: #fafafa;
+  box-shadow: inset 0 7px 15px -7px #222;
+  color: #777;
+  padding: 45px 0;
+  margin-top: 50px; }
 
 .wrapper {
   width: 100%; }
 
 .wrapper-dark {
-  background-color: #333;
-  color: #efefef;
+  background-color: #181818;
+  color: #eee;
   padding: 5px 0;
-  box-shadow: 10px 0 5px #333;
+  box-shadow: 0px 0px 15px #181818;
   margin: 50px auto; }
   .wrapper-dark h1, .wrapper-dark h2, .wrapper-dark h3, .wrapper-dark h4, .wrapper-dark h5 {
-    color: #dedede; }
+    color: #ddd; }
 
 .container {
   margin-left: auto;
