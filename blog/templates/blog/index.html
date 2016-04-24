@@ -1,59 +1,59 @@
 {% load staticfiles django_markdown %}
 <!DOCTYPE html>
 <html>
-	<head>
-		<link type="text/css" rel="stylesheet" href="{% static 'main.css' %}" />
-		<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
-		{% block stylesheets %}{% endblock %}
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <head>
+	<link type="text/css" rel="stylesheet" href="{% static 'main.css' %}" />
+	<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
+	{% block stylesheets %}{% endblock %}
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<meta name="author" content="Northcode"/>
-		
-		
-		{% block meta %}
-		<title>Northcode</title>
-		<meta name="description" content="Northcode.no webpage" />
-		{% endblock %}
-	</head>
-	<body>
-		<section id="wrapper">
-		    {% block header %}
-		    <section id="logo"><img src="{% static 'img/northcode.svg' %}" /></section>
-		    <header id="header" class="window">
-			    <nav>
-				    <ul>
-					    <li><a href="{% url 'index'    %}">Home</a></li>
-					    <li><a href="{% url 'projects' %}">Projects</a></li>
-					    <li><a href="{% url 'about'    %}">About Us</a></li>
-					    <li><a href="{% url 'contact'  %}">Contact info</a></li>
-					    <li><a href="{% url 'gallery'  %}">Gallery</a></li>
-					    {% if user.is_authenticated %}
-					    <li><a href="{% url 'logout' %}">Logout</a></li>
-					    {% else %}
-					    <li><a href="{% url 'login'    %}">Login</a></li>
-					    {% endif %}
-				    </ul>
-			    </nav>
-		    </header>
-		    {% endblock %}
-		    {% block content %}
-		    <section id="blog">
-			{% for post in blog_posts %}
-			    <article class="blogpost window">
-				    <h1>{{post.title}}</h1>
-				    {{post.text|markdown}}
-				    <em>posted on: {{post.posted}} by: {{post.author.first_name}} {{post.author.last_name}}</em>
-			    </article>
-			{% endfor %}
-		    </section>
-		    {% endblock %}
-		    {% block footer %}
-		    <footer>
-			    Webpage by: Andreas Larsen<br/>
-			    &copy; 2016 - Northcode<br/>
-		    </footer>
-		    {% endblock %}
-		</section>
-	</body>
+	<meta name="author" content="Northcode"/>
+	
+	
+	{% block meta %}
+	<title>Northcode</title>
+	<meta name="description" content="Northcode.no webpage" />
+	{% endblock %}
+    </head>
+    <body>
+	<section id="wrapper">
+	    {% block header %}
+	    <section id="logo"><img src="{% static 'img/northcode.svg' %}" /></section>
+	    <header id="header" class="window">
+		<nav>
+		    <ul>
+			<li><a href="{% url 'index'    %}">Home</a></li>
+			<li><a href="{% url 'projects' %}">Projects</a></li>
+			<li><a href="{% url 'about'    %}">About Us</a></li>
+			<li><a href="{% url 'contact'  %}">Contact info</a></li>
+			<li><a href="{% url 'gallery'  %}">Gallery</a></li>
+			{% if user.is_authenticated %}
+			<li><a href="{% url 'logout' %}">Logout</a></li>
+			{% else %}
+			<li><a href="{% url 'login'    %}">Login</a></li>
+			{% endif %}
+		    </ul>
+		</nav>
+	    </header>
+	    {% endblock %}
+	    {% block content %}
+	    <!-- <section id="blog"> -->
+	    {% for post in blog_posts %}
+	    <article class="blogpost">
+		<h2>{{post.title}}</h2>
+		{{post.text|markdown}}
+		<em>posted on: {{post.posted}} by: {{post.author.first_name}} {{post.author.last_name}}</em>
+	    </article>
+	    {% endfor %}
+	    <!-- </section> -->
+	    {% endblock %}
+	    {% block footer %}
+	    <footer>
+		Webpage by: Andreas Larsen<br/>
+		&copy; 2016 - Northcode<br/>
+	    </footer>
+	    {% endblock %}
+	</section>
+    </body>
 </html>
