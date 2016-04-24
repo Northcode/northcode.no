@@ -44,7 +44,6 @@
 	{% block content %}
 	<div class="wrapper wrapper-light">
 	    <div class=container>
-		<!-- <section id="blog"> -->
 		<h2>My Blog thingy (mostly dorment):</h2>
 		{% for post in blog_posts %}
 		<article class="blogpost">
@@ -56,7 +55,7 @@
 		<hr class=separator />
 		{% endif %}
 		{% endfor %}
-		<!-- </section> -->
+		<a class="feed-link" href="{% url 'rssfeed' %}">rss feed link</a>
 	    </div>
 	</div>
 	<div class="wrapper wrapper-dark">

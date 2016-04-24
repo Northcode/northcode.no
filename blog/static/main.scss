@@ -118,6 +118,13 @@ blockquote > p:after {
   font-size: 11pt; 
 }
 
+.feed-link {
+    margin-top: 25px;
+    display: block;
+    border-top: solid 1px $foreground-primary-text;
+    padding-top: 13px;
+}
+
 header {
     margin-bottom: 20px;
     padding: 0;
