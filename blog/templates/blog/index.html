@@ -17,9 +17,9 @@
 	{% endblock %}
     </head>
     <body>
-	<section id="wrapper">
+	<div id="wrapper">
 	    {% block header %}
-	    <section id="logo"><img src="{% static 'img/northcode.svg' %}" /></section>
+	    <div id="logo"><img alt="Northcode.no" src="{% static 'img/northcode.svg' %}" /></div>
 	    <header id="header" class="window">
 		<nav>
 		    <ul>
@@ -54,6 +54,6 @@
 		&copy; 2016 - Northcode<br/>
 	    </footer>
 	    {% endblock %}
-	</section>
+	</div>
     </body>
 </html>
