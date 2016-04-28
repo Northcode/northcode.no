@@ -30,4 +30,6 @@ body {
   color: #333; }
 
 footer {
-  color: #e5e5e5; }
+    background-color: inherit;
+    box-shadow: none;
+}
