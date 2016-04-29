@@ -14,17 +14,7 @@
 	    <em>Uploaded on: {{ image.uploaded_on }}</em>
 	    {% endfor %}
 
-	    <div class=pagination>
-		{% if is_paginated %}
-		{% if page_obj.has_previous %}
-		<a href="{% url 'gallery' %}?page={{ page_obj.previous_page_number }}">&lt;</a>
-		{% endif %}
-		<span>Currently on page: {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
-		{% if page_obj.has_next %}
-		<a href="{% url 'gallery' %}?page={{ page_obj.next_page_number }}">&gt;</a>
-		{% endif %}
-		{% endif %}
-	    </div>
+	    {% include 'info/utils/pagination.html' %}
 	</section>
     </div>
 </div>
