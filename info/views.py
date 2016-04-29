@@ -10,11 +10,11 @@ def contact(request):
     return render(request, 'info/contact.html', {})
 
 class Gallery(ListView):
+    model = Picture
+    order_by = '-uploaded_on'
     template_name = 'info/gallery.html'
     context_object_name = 'images'
-
-    def get_queryset(self):
-        return Picture.objects.order_by('-uploaded_on')[:3]
+    paginate_by = 3
 
 def gallery_img(request,pk):
     return redirect(Picture.objects.get(pk=pk).path.url)

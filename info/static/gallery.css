@@ -7,3 +7,8 @@
 #gallery {
     text-align: center;
 }
+
+.pagination {
+    margin: 15px auto;
+    font-weight: bold;
+}

@@ -12,4 +12,7 @@ class Picture(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        ordering = ['-uploaded_on']
+
 saved_file.connect(generate_aliases_global)

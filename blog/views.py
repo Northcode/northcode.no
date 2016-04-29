@@ -6,13 +6,13 @@ from .models import Post
 
 # Create your views here.
 class Index(ListView):
-    template_name = 'blog/index.html'
-    context_object_name = 'blog_posts'
+	template_name = 'blog/index.html'
+	context_object_name = 'blog_posts'
 
-    def get_queryset(self):
-        return Post.objects.order_by('-posted')[:5]
+	def get_queryset(self):
+		return Post.objects.order_by('-posted')[:5]
 
 class BlogPost(DetailView):
-    model = Post
-    template_name = 'blog/post.html'
-    context_object_name = 'post'
+	model = Post
+	template_name = 'blog/post.html'
+	context_object_name = 'post'

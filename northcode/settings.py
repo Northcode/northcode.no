@@ -131,7 +131,8 @@ USE_TZ = True
 STATIC_ROOT = '/var/www/northcode.no/static/'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/var/www/northcode.no/media/'
+# MEDIA_ROOT = '/var/www/northcode.no/media/'
+MEDIA_ROOT = 'media/'
 
 THUMBNAIL_ALIASES = {
     '': {
@@ -154,6 +155,7 @@ if os.path.isfile(config_path):
         ALLOWED_HOSTS = config.get("allowed_hosts",ALLOWED_HOSTS)
         DATABASES = config.get("databases",DATABASES)
         DEBUG = config.get("debug",DEBUG)
+        MEDIA_ROOT = config.get("media_root",MEDIA_ROOT)
     except IOError as e:
         print("I/O error(%s): (%i) %s" & (config_path,e.errno,e.strerror))
     except ValueError as e:
