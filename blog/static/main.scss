@@ -1,0 +1,258 @@
+// variables:
+$font-normal: Ubuntu, Arial, sans-serif;
+$font-heading: Inconsolata, Ubuntu Mono, Courier, monospace;
+
+// colors:
+$background-primary: #f5f5f5;
+$background-secondary: #181818;
+$background-ternary: #fafafa;
+
+
+$foreground-em: #fe5020;
+
+$foreground-primary-text: #222;
+$foreground-primary-heading: #333;
+$foreground-primary-qoute: #4d4d4d;
+
+$foreground-secondary-text: #eee;
+$foreground-secondary-heading: #ddd;
+$foreground-secondary-qoute: #ccc;
+
+$foreground-ternary-text: #777;
+$foreground-ternary-heading: #333;
+$foreground-ternary-qoute: #666;
+
+
+// media widths:
+
+$width-desktop: 850px;
+$width-tablet: 600px;
+$width-phablet: 400px;
+$width-phone: 95%;
+
+$min-width-desktop: 1350px;
+$min-width-tablet: 1000px;
+$min-width-phablet: 600px;
+$min-width-phone: 400px;
+
+// media query mixins:
+@mixin desktop {
+    @media screen and (max-width: $min-width-desktop) {
+	@content
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: $min-width-tablet) {
+	@content
+    }
+}
+
+@mixin phablet {
+    @media screen and (max-width: $min-width-phablet) {
+	@content
+    }
+}
+
+@mixin phone {
+    @media screen and (max-width: $min-width-phone) {
+	@content
+    }
+}
+
+// global style:
+
+body {
+    background-color: $background-primary;
+    line-height: 1.5;
+    font-family: $font-normal;
+    color: $foreground-primary-text;
+    font-size: 13pt;
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: $font-heading;
+    margin-bottom: 3px;
+    color: $foreground-primary-heading; 
+}
+
+h1 {
+    font-size: 22pt;
+}
+ 
+h2 {
+    font-size: 20pt;
+}
+
+h3 {
+    font-size: 18pt;
+}
+
+h4 {
+    font-size: 15pt;
+}
+
+a {
+    color: $foreground-em;
+}
+
+blockquote {
+  font-weight: bold;
+  color: $foreground-primary-qoute; 
+}
+
+blockquote > p:before {
+  content: open-quote;
+  font-size: 16pt; 
+}
+
+blockquote > p:after {
+  content: close-quote;
+  font-size: 11pt; 
+}
+
+blockquote > p:after {
+  content: close-quote;
+  font-size: 11pt; 
+}
+
+.feed-link {
+    margin-top: 25px;
+    display: block;
+    border-top: solid 1px $foreground-primary-text;
+    padding-top: 13px;
+}
+
+header {
+    margin-bottom: 20px;
+    padding: 0;
+    text-align: center;
+    border-bottom: 1px solid #aaa;
+    border-top: 1px solid #aaa;
+
+    nav ul {
+	list-style-type: none;
+	margin-left: 10px;
+	padding: 0;
+
+	li {
+	    width: 60px;
+	    display: inline;
+	    padding: 7px;
+
+	    
+	    a {
+		text-decoration: none;
+	    }
+	}
+	li:hover {
+	    background-color: #999;
+	    /* box-shadow: 0px 0px 5px #555; */
+	    a {
+		color: white;
+	    }
+	}
+    }
+}
+
+.window {
+    margin: 15px;
+    padding: 10px;
+
+    @include phone {
+	width: 100%;
+	margin: 0px;
+    }
+}
+
+#logo {
+  font-size: 42px;
+  color: #fe5423;
+  text-align: left;
+  margin-top: 50px;
+  text-align: center;
+  width: 100%;
+
+  img {
+      width: 800px;
+
+      @include desktop {
+	  width: 600px;
+      }
+      @include tablet {
+	  width: 400px;
+      }
+      @include phablet {
+	  width: 380px;
+      }
+      @include phone {
+	  width: 260px;
+      }
+  }
+
+  @include phone {
+      padding: 0;
+  }
+
+}
+
+.blogpost {
+    margin-top: 5px;
+
+}
+
+.separator {
+    width: 60%;
+    color: $foreground-primary-text;
+    margin: 25px auto;
+}
+
+footer {
+    text-align: center;
+    background-color: $background-ternary;
+    box-shadow: inset 0 7px 15px -7px $foreground-primary-text;
+    color: $foreground-ternary-text;
+    padding: 45px 0;
+    margin-top: 50px;
+}
+
+.pagination {
+    margin: 15px auto;
+    font-weight: bold;
+}
+
+// spacing things:
+
+.wrapper {
+    width: 100%;
+}
+
+.wrapper-dark {
+    background-color: $background-secondary;
+    color: $foreground-secondary-text;
+    padding: 5px 0;
+    box-shadow: 0px 0px 15px $background-secondary;
+    margin: 50px auto;
+    h1,h2,h3,h4,h5 { color: $foreground-secondary-heading; }
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: $width-desktop;
+
+    @include tablet {
+	width: $width-tablet;
+    }
+    @include phablet {
+	width: $width-phablet;
+    }
+    @include phone {
+	width: $width-phone;
+    }
+}
+
+
+

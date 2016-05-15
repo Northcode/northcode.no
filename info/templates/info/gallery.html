@@ -1,0 +1,21 @@
+{% extends 'blog/index.html' %}
+{% load staticfiles %}
+{% load thumbnail %}
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'gallery.css' %}" />
+{% endblock %}
+{% block content %}
+<div class="wrapper wrapper-light">
+    <div class=container>
+	<section id="gallery">
+	    {% for image in images %}
+	    <h4>{{image.title}}</h4>
+	    <a href="{{ image.path.url }}"><img src="{{ image.path|thumbnail_url:'medium' }}" alt="{{ image.title }}" /></a><br/>
+	    <em>Uploaded on: {{ image.uploaded_on }}</em>
+	    {% endfor %}
+
+	    {% include 'info/utils/pagination.html' %}
+	</section>
+    </div>
+</div>
+{% endblock %}

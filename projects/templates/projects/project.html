@@ -1,0 +1,14 @@
+{% extends 'blog/index.html' %}
+{% load staticfiles django_markdown %}
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'projects.css' %}" />
+{% endblock %}
+{% block content %}
+<section id="project">
+	<h1>{{project.name}}</h1>
+	<section id="projecttext">
+		{{project.text|markdown}}
+	</section>
+</section>
+
+{% endblock %}

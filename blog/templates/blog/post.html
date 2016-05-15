@@ -1,0 +1,13 @@
+{% extends 'blog/index.html' %}
+{% load staticfiles django_markdown %}
+{% block content %}
+<div class="wrapper wrapper-light">
+    <div class="container">
+	<article class="blogpost">
+	    <h3>{{post.title}}</h3>
+	    {{post.text|markdown}}
+	    <em>posted on: {{post.posted}} by: {{post.author.first_name}} {{post.author.last_name}}</em>
+	</article>
+    </div>
+</div>
+{% endblock %}

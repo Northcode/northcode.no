@@ -1,0 +1,82 @@
+{% load staticfiles django_markdown %}
+<!DOCTYPE html>
+<html>
+    <head>
+	<link type="text/css" rel="stylesheet" href="{% static 'main.css' %}" />
+	<link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}"/>
+	{% block stylesheets %}{% endblock %}
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<meta name="author" content="Northcode"/>
+	
+	
+	{% block meta %}
+	<title>Northcode</title>
+	<meta name="description" content="Northcode.no webpage" />
+	{% endblock %}
+    </head>
+    <body>
+	<div class="wrapper wrapper-light">
+	    <div class="container">
+		{% block header %}
+		<div id="logo"><img alt="Northcode.no" src="{% static 'img/northcode.svg' %}" /></div>
+		<header id="header" class="window">
+		    <nav>
+			<ul>
+			    <li><a href="{% url 'index'    %}">Home</a></li>
+			    <li><a href="{% url 'index'    %}#contact">Contact info</a></li>
+			    <li><a href="{% url 'index'    %}#about">About Us</a></li>
+			    <li><a href="{% url 'projects' %}">Projects</a></li>
+			    <li><a href="{% url 'gallery'  %}">Gallery</a></li>
+			    {% if user.is_authenticated %}
+			    <li><a href="{% url 'admin:index' %}">Admin</a></li>
+			    <li><a href="{% url 'logout' %}">Logout</a></li>
+			    {% else %}
+			    <li><a href="{% url 'login'    %}">Login</a></li>
+			    {% endif %}
+			</ul>
+		    </nav>
+		</header>
+	    </div>
+	</div>
+	{% endblock %}
+	{% block content %}
+	<div class="wrapper wrapper-light">
+	    <div class=container>
+		<h2>My Blog thingy (mostly dorment):</h2>
+		{% for post in blog_posts %}
+		<article class="blogpost">
+		    <h3>{{post.title}}</h3>
+		    {{post.text|markdown}}
+		    <em>posted on: {{post.posted}} by: {{post.author.first_name}} {{post.author.last_name}}, <a href="{% url 'blogpost' pk=post.pk %}">permalink</a></em>
+		</article>
+		{% if not forloop.last %}
+		<hr class=separator />
+		{% endif %}
+		{% endfor %}
+		<a class="feed-link" href="{% url 'rssfeed' %}">rss feed link</a>
+		{% include 'info/utils/pagination.html' %}
+	    </div>
+	</div>
+	<div class="wrapper wrapper-dark">
+	    <div class="container" id="contact">
+		{% include "info/contact.html" %}
+	    </div>
+	</div>
+	<div class="wrapper wrapper-light">
+	    <div class="container" id="about">
+		{% include "info/about.html" %}
+	    </div>
+	</div>
+	
+	{% endblock %}
+	{% block footer %}
+	<footer>
+	    Webpage by: Andreas Larsen<br/>
+	    &copy; 2016 - Northcode<br/>
+	    <a href="https://github.com/Northcodeno/northcode.no/tree/django-onepage">Source code</a>
+	</footer>
+	{% endblock %}
+    </body>
+</html>
