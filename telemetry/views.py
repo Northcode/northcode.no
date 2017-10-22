@@ -41,7 +41,7 @@ def register_entry(request):
 
 
 class PingEntryViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsAuthenticatedOrReadOnly]
+    permission_classes = [IsAuthenticated]
     queryset = PingEntry.objects.all()
     serializer_class = PingEntrySerializer
     
