@@ -1,7 +1,7 @@
 from django.contrib.syndication.views import Feed
 from django.core.urlresolvers import reverse
 from .models import Post
-from django_markdown.utils import markdown
+from markdown_deux import markdown
 
 class BlogFeed(Feed):
     title = "Northcode blog"

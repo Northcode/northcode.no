@@ -23,5 +23,5 @@ urlpatterns = [
     url(r'^', include('blog.urls')),
     url(r'^', include('info.urls')),
     url(r"^projects/", include("projects.urls")),
-    url(r"^markdown/", include("django_markdown.urls")),
+    url(r"^t/", include("telemetry.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

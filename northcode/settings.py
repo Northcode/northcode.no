@@ -40,9 +40,12 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'projects.apps.ProjectsConfig',
     'info.apps.InfoConfig',
+    'telemetry.apps.TelemetryConfig',
 
     'easy_thumbnails',
-    'django_markdown',
+    'markdown_deux',
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -83,12 +86,16 @@ WSGI_APPLICATION = 'northcode.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'northcode',
-        'USER': 'django',
-        'PASSWORD': '1234',
-        'HOST': 'localhost'
-    }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'northcode',
+    #     'USER': 'django',
+    #     'PASSWORD': '1234',
+    #     'HOST': 'localhost'
+    # }
 }
 
 
@@ -139,6 +146,18 @@ THUMBNAIL_ALIASES = {
         'medium': {'size': (600,450), 'crop': True}
     }
 }
+
+# REST FRAMEWORK
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'PAGE_SIZE': 100
+}
+
 
 # load config from json file
 config_dir = "/etc"
