@@ -8,3 +8,5 @@ media/
 *.sqlite3
 /posttime.py
 /northcode/main.db
+*env2/
+*env.bak/
