@@ -7,3 +7,4 @@ media/
 *.pyc
 *.sqlite3
 /posttime.py
+/northcode/main.db
