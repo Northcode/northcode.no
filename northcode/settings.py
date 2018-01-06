@@ -83,19 +83,12 @@ WSGI_APPLICATION = 'northcode.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
+PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    },
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'northcode',
-    #     'USER': 'django',
-    #     'PASSWORD': '1234',
-    #     'HOST': 'localhost'
-    # }
+        'NAME': os.path.join(PROJECT_DIR, "main.db"),
+    }
 }
 
 
