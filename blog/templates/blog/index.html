@@ -79,5 +79,13 @@
 	    <a href="https://github.com/Northcodeno/northcode.no/tree/django-onepage">Source code</a>
 	</footer>
 	{% endblock %}
+	<script type="text/javascript">
+	 let code_tags = document.getElementsByTagName("code")
+
+	 for (let tag of code_tags) {
+	     tag.innerHTML = tag.innerHTML.replace(new RegExp("(defn?|for|in|return|if|recur|conj|range)","g"),
+						   "<span style='color: #2A49CC;'>$1</span>")
+	 }
+	</script>
     </body>
 </html>
