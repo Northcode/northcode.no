@@ -52,7 +52,9 @@
 		    <h3>{{post.title}}</h3>
 		    {{post.text|markdown}}
 		    <em>posted on: {{post.posted}} by: {{post.author.first_name}} {{post.author.last_name}}, <a href="{% url 'blogpost' pk=post.pk %}">permalink</a></em>
+		    {% if user.is_authenticated %}
 		    <a href="{% url 'edit_post' pk=post.pk %}">Edit post</a>
+		    {% endif %}
 		</article>
 		{% if not forloop.last %}
 		<hr class=separator />

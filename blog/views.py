@@ -40,6 +40,8 @@ def new_post(request):
                     })
             else:
                     return save_post(PostForm(request.POST), request.user)
+        else:
+                return redirect("index")
 
 def edit_post(request, pk):
         if request.user.is_authenticated():
@@ -49,3 +51,5 @@ def edit_post(request, pk):
                         return render(request, "blog/new_post.html", { "form": form })
                 else:
                         return save_post(PostForm(request.POST), request.user)
+        else:
+                return redirect("index")
