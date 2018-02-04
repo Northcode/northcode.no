@@ -9,13 +9,12 @@
 		<table style="width: 100%;">
 		    <tr>
 			<td style="width: 50%; vertical-align: top;">
-			    <input type="text" name="title" placeholder="title" value="{{ form.title.value }}" class="title" autofocus="true" />
-			    <textarea name="text" class="text" placeholder="markdown">{{ form.text.value }}</textarea>
+			    <input type="text" name="title" placeholder="title" value="{{ form.title.value|default:'' }}" class="title" autofocus="true" />
+			    <textarea name="text" class="text" placeholder="markdown">{{ form.text.value|default:''}}</textarea>
 			</td>
 			<td style="width: 50%; vertical-align: top;">
-			    <h2 id="preview-title">{{ form.title.value }}</h2>
+			    <h2 id="preview-title">{{ form.title.value|default:'' }}</h2>
 			    <div id="preview-text">
-				{{ form.text.value|markdown }}
 			    </div>
 			</td>
 		    </tr>
@@ -60,7 +59,14 @@
 
  let mdconverter = new showdown.Converter()
 
- textarea.oninput = debounce((e) => text_preview.innerHTML = mdconverter.makeHtml(textarea.value), 200)
+ textarea.oninput = debounce((e) => {
+     text_preview.innerHTML = mdconverter.makeHtml(textarea.value)
+     textarea.style.height = textarea.scrollHeight - 14 + "px"
+
+     do_syntax_highlight()
+ }, 200)
+
+ textarea.oninput()
 
 </script>
 {% endblock %}

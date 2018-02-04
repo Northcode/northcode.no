@@ -170,7 +170,8 @@ footer {
   padding: 7px;
   background: #ededed;
   width: 90%;
-  min-height: 150px; }
+  min-height: 150px;
+  height: 100%; }
 
 .new_post #preview-text {
   min-height: 150px;
