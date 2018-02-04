@@ -138,6 +138,31 @@ footer {
   .wrapper-dark h1, .wrapper-dark h2, .wrapper-dark h3, .wrapper-dark h4, .wrapper-dark h5 {
     color: #ddd; }
 
+.row {
+  box-sizing: border-box;
+  width: 100%; }
+
+.row:after {
+  clear: both; }
+
+.col {
+  position: relative;
+  float: left;
+  display: block;
+  width: 49.2%; }
+  @media screen and (max-width: 1000px) {
+    .col {
+      width: auto;
+      float: none; } }
+  @media screen and (max-width: 600px) {
+    .col {
+      width: auto;
+      float: none; } }
+  @media screen and (max-width: 400px) {
+    .col {
+      width: auto;
+      float: none; } }
+
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -150,6 +175,23 @@ footer {
       width: 400px; } }
   @media screen and (max-width: 400px) {
     .container {
+      width: 95%; } }
+
+.container-wide {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1350px; }
+  @media screen and (max-width: 1350px) {
+    .container-wide {
+      width: 850px; } }
+  @media screen and (max-width: 1000px) {
+    .container-wide {
+      width: 850px; } }
+  @media screen and (max-width: 600px) {
+    .container-wide {
+      width: 400px; } }
+  @media screen and (max-width: 400px) {
+    .container-wide {
       width: 95%; } }
 
 .new_post .title {

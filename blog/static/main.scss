@@ -241,13 +241,65 @@ footer {
     h1,h2,h3,h4,h5 { color: $foreground-secondary-heading; }
 }
 
+.row {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.row:after {
+    clear: both;
+}
+
+.col {
+    position: relative;
+    float: left;
+    display: block;
+
+    $width: 49.2%;
+    
+    width: $width;
+
+    @include tablet {
+	width: auto;
+	float: none;
+    }
+    @include phablet {
+	width: auto;
+	float: none;
+    }
+    @include phone {
+	width: auto;
+	float: none;
+    }
+}
+
 .container {
+    
     margin-left: auto;
     margin-right: auto;
     width: $width-desktop;
 
     @include tablet {
 	width: $width-tablet;
+    }
+    @include phablet {
+	width: $width-phablet;
+    }
+    @include phone {
+	width: $width-phone;
+    }
+}
+
+.container-wide {
+    margin-left: auto;
+    margin-right: auto;
+    width: $width-desktop + 500px;
+
+    @include desktop {
+	width: $width-desktop;
+    }
+    @include tablet {
+	width: $width-tablet + 250px;
     }
     @include phablet {
 	width: $width-phablet;

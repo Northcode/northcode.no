@@ -2,27 +2,36 @@
 {% load staticfiles markdown_deux_tags %}
 {% block content %}
 <div class="wrapper wrapper-light">
-    <div class="container">
+    <div class="container-wide">
 	<article class="blogpost new_post">
 	    <form method="POST">
 		{% csrf_token %}
-		<table style="width: 100%;">
-		    <tr>
-			<td style="width: 50%; vertical-align: top;">
-			    <input type="text" name="title" placeholder="title" value="{{ form.title.value|default:'' }}" class="title" autofocus="true" />
-			    <textarea name="text" class="text" placeholder="markdown">{{ form.text.value|default:''}}</textarea>
-			</td>
-			<td style="width: 50%; vertical-align: top;">
-			    <h2 id="preview-title">{{ form.title.value|default:'' }}</h2>
-			    <div id="preview-text">
-			    </div>
-			</td>
-		    </tr>
-		</table>
-		Tags:
-		{{ form.tags }}
-		<em>author: {{user.first_name}} {{user.last_name}} : {{ user.email }}</em>
-		<input type="submit" value="Post" />
+		
+		<!-- <table style="width: 100%;">
+		     <tr>
+		     <td style="width: 50%; vertical-align: top;"> -->
+		<div class="row">
+		    <div class="col">
+			<input type="text" name="title" placeholder="title" value="{{ form.title.value|default:'' }}" class="title" autofocus="true" />
+			<textarea name="text" class="text" placeholder="markdown">{{ form.text.value|default:''}}</textarea>
+		    </div>
+		    <!-- </td>
+			 <td style="width: 50%; vertical-align: top;"> -->
+		    <div class="col">
+			<h2 id="preview-title">{{ form.title.value|default:'' }}</h2>
+			<div id="preview-text">
+			</div>
+		    </div>
+		</div>
+		<div class="row">
+		    <!-- </td>
+			 </tr>
+			 </table> -->
+		    Tags:
+		    {{ form.tags }}
+		    <em>author: {{user.first_name}} {{user.last_name}} : {{ user.email }}</em>
+		    <input type="submit" value="Post" />
+		</div>
 	    </form>
 	</article>
     </div>
