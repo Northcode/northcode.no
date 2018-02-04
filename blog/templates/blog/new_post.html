@@ -1,0 +1,66 @@
+{% extends 'blog/index.html' %}
+{% load staticfiles markdown_deux_tags %}
+{% block content %}
+<div class="wrapper wrapper-light">
+    <div class="container">
+	<article class="blogpost new_post">
+	    <form method="POST">
+		{% csrf_token %}
+		<table style="width: 100%;">
+		    <tr>
+			<td style="width: 50%; vertical-align: top;">
+			    <input type="text" name="title" placeholder="title" value="{{ form.title.value }}" class="title" autofocus="true" />
+			    <textarea name="text" class="text" placeholder="markdown">{{ form.text.value }}</textarea>
+			</td>
+			<td style="width: 50%; vertical-align: top;">
+			    <h2 id="preview-title">{{ form.title.value }}</h2>
+			    <div id="preview-text">
+				{{ form.text.value|markdown }}
+			    </div>
+			</td>
+		    </tr>
+		</table>
+		Tags:
+		{{ form.tags }}
+		<em>author: {{user.first_name}} {{user.last_name}} : {{ user.email }}</em>
+		<input type="submit" value="Post" />
+	    </form>
+	</article>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+<script src="https://cdn.rawgit.com/showdownjs/showdown/1.8.6/dist/showdown.min.js" ></script>
+<script>
+
+ // thank you: https://davidwalsh.name/javascript-debounce-function
+ const debounce = (func, wait, immediate) => {
+     let timeout
+     return function() {
+	 let context = this, args = arguments
+	 let later = () => {
+	     timeout = null;
+	     if (!immediate) func.apply(context, args)
+	 };
+	 var callNow = immediate && !timeout
+	 clearTimeout(timeout)
+	 timeout = setTimeout(later, wait)
+	 if (callNow) func.apply(context, args)
+     }
+ }
+ 
+ let title = document.getElementsByClassName('title')[0]
+ let textarea = document.getElementsByClassName('text')[0]
+ let title_preview = document.getElementById('preview-title')
+ let text_preview = document.getElementById('preview-text')
+
+ title.oninput = (e) => title_preview.innerHTML = title.value
+
+ let mdconverter = new showdown.Converter()
+
+ textarea.oninput = debounce((e) => text_preview.innerHTML = mdconverter.makeHtml(textarea.value), 200)
+
+</script>
+{% endblock %}

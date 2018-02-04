@@ -10,3 +10,4 @@ media/
 /northcode/main.db
 *env2/
 *env.bak/
+/package-lock.json

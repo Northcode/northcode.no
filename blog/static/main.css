@@ -118,7 +118,9 @@ footer {
   box-shadow: inset 0 7px 15px -7px #222;
   color: #777;
   padding: 45px 0;
-  margin-top: 50px; }
+  margin-top: 50px;
+  bottom: 0;
+  width: 100%; }
 
 .pagination {
   margin: 15px auto;
@@ -149,3 +151,56 @@ footer {
   @media screen and (max-width: 400px) {
     .container {
       width: 95%; } }
+
+.new_post .title {
+  border: none;
+  border-bottom: solid 1px #222;
+  background: none;
+  font-size: 20pt;
+  font-weight: bold;
+  display: block;
+  margin-top: 27px; }
+
+.new_post .text {
+  border: none;
+  /* border-top: solid 1px #222; */
+  /* border-bottom: solid 1px #222; */
+  margin: 5px;
+  margin-top: 23px;
+  padding: 7px;
+  background: #ededed;
+  width: 90%;
+  min-height: 150px; }
+
+.new_post #preview-text {
+  min-height: 150px;
+  margin-top: 25px; }
+
+.new_post em {
+  display: block;
+  margin-bottom: 11px; }
+
+.new_post input[type=submit] {
+  display: block;
+  background: #e8e8e8;
+  padding: 5px 11px;
+  margin: 5px;
+  border: none; }
+  .new_post input[type=submit]:hover {
+    background: #181818;
+    color: #eee; }
+
+.new_post select {
+  background: #ededed;
+  padding: 0px;
+  margin: 5px 7px;
+  border: none;
+  width: 100%;
+  height: 43px; }
+  .new_post select option {
+    background: #d9d9d9;
+    padding: 11px;
+    display: inline-block; }
+    .new_post select option:checked {
+      background: #181818;
+      color: #eee; }
